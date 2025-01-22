@@ -1,0 +1,7 @@
+*kubeconfig
+!*kubeconfig/
+*.tar.gz
+tf.json
+kubeone.yaml
+.vagrant
+.terraform

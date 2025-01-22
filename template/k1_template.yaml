@@ -1,0 +1,23 @@
+apiVersion: kubeone.k8c.io/v1beta2
+kind: KubeOneCluster
+name: '{{ CLUSTER_NAME }}'
+versions:
+  kubernetes: '{{ KUBERNETES_VERSION }}'
+cloudProvider:
+  none: {}
+
+controlPlane:
+  hosts:
+    - privateAddress: '{{ CONTROLPLANE_PRIVATE_ADDRESS }}'
+      sshUsername: '{{ CONTROLPLANE_SSH_USERNAME }}'
+      sshPrivateKeyFile: '{{ CONTROLPLANE_SSH_PRIVATE_KEY }}'
+
+staticWorkers:
+  hosts:
+{{ STATIC_WORKERS_HOSTS }}
+
+# Provide the external address of your load balancer or the public addresses of
+# the first control plane nodes.
+
+machineController:
+  deploy: false
